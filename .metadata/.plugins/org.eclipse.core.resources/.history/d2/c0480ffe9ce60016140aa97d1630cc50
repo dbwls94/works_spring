@@ -1,0 +1,23 @@
+package first.sample.controller;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+//Controller 어노테이션(Annotation)은 Spring에게 현재 클래스가 컨트롤러라는 것을 명시해줌
+@Controller
+public class SampleController {
+    Logger log = Logger.getLogger(this.getClass()); //사용할 Log4j 로그 선언
+     
+    //DispatcherServlet은 이 이노테이션을 기준으로 어떤 컨트롤러의 메소드를 호출되어야 할지 결정
+    @RequestMapping(value="/sample/openSampleList.do")
+    public ModelAndView openSampleList(Map<String,Object> commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("");
+        log.debug("인터셉터 테스트");
+         
+        return mv;
+    }
+}
