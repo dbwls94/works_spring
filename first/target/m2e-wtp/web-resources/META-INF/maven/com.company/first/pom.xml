@@ -301,13 +301,13 @@
 			<scope>test</scope>
 		</dependency>  
 		
-		<!-- JSONObject를 위한 추가 : 2015-01-25 김윤기 -->
+		<!-- JSONObject를 위한 추가 -->
 <dependency>
 	<groupId>org.json</groupId>
 	<artifactId>json</artifactId>
 	<version>20090211</version>
 </dependency>
-		<!-- JSONObject를 위한 추가 : 2015-01-25 김윤기 -->	  
+		<!-- JSONObject를 위한 추가 -->	  
 	</dependencies>
 	
 	

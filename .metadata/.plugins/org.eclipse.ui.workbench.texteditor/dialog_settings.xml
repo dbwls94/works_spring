@@ -2,14 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="jstl" key="selection"/>
+		<item value="mvn2" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="oracle"/>
+			<item value="mvn2"/>
+			<item value="mysql"/>
+			<item value="dbcp"/>
+			<item value="common-dbcp"/>
+			<item value="spring-jdbc"/>
+			<item value="mybatis"/>
 			<item value="jstl"/>
-			<item value="commons-digester"/>
 		</list>
 		<list key="replacehistory">
 		</list>

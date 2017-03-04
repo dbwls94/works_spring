@@ -1,0 +1,5 @@
+package first.common.resolver;
+
+public class CustomMapArgumentResolver {
+
+}
