@@ -2,7 +2,7 @@
 
 Spring Framework 사용한 게시판 개발
 
-#1 Spring Framework 환경 구축 : http://beecomci.tistory.com/2
+#1 Spring Framework 환경 구축 : http://beecomci.tistory.com/2  
 #2 Spring 프로젝트 생성 : http://beecomci.tistory.com/3
 #3 MVC 패턴 : http://beecomci.tistory.com/4
 #4 Log 설정 : http://beecomci.tistory.com/5
