@@ -16,4 +16,82 @@
             ORDER BY IDX DESC
         ]]>
     </select>
+    
+    <!-- MyBatis에서는 변수 대입을 #{변수명}이라고 함 
+    	제목과 내용을 입력받을 때의 name과 동일하다-->
+    <insert id="insertBoard" parameterType="hashmap">
+	    <![CDATA[
+	        INSERT INTO TB_BOARD
+	        (
+	            TITLE,
+	            CONTENTS,
+	            HIT_CNT,
+	            DEL_GB,
+	            CREA_DTM,
+	            CREA_ID
+	        )
+	        VALUES
+	        (
+	            #{TITLE},
+	            #{CONTENTS},
+	            0,
+	            'N',
+	            SYSDATE(),
+	            'Admin'
+	        )
+	    ]]>
+	</insert>
+	
+	<!-- 조회수 +1 -->
+	<update id="updateHitCnt" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_BOARD
+        SET
+            HIT_CNT = IFNULL(HIT_CNT, 0) + 1
+        WHERE
+            IDX = #{IDX}           
+	    ]]>
+	</update>
+	 
+	<!-- 글 상세 정보 가져옴 -->
+	<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
+	    <![CDATA[
+	        SELECT
+	            IDX,
+	            HIT_CNT,
+	            CREA_ID,
+	            CREA_DTM,
+	            TITLE,
+	            CONTENTS
+	        FROM
+	            TB_BOARD
+	        WHERE
+	            IDX = #{IDX}       
+	    ]]>
+	</select>
+	
+	<!-- 게시물 수정 update -->
+	<update id="updateBoard" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_BOARD
+	        SET
+	            TITLE = #{TITLE},
+	            CONTENTS = #{CONTENTS}
+	        WHERE
+	            IDX = #{IDX}   
+	    ]]>
+	</update>
+	
+	<!-- 게시물 삭제 update
+	게시물을 실제로 db에서 삭제하는게 아니라 테이블에 있던 del_gb 칼럼을 Y라고 표기해서 삭제된 게시물이라고 처리해둔다
+	실제로 삭제하려면 delete문 사용! -->
+	<update id="deleteBoard" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_BOARD
+	        SET
+	            DEL_GB = 'Y'
+	        WHERE
+	            IDX = #{IDX}
+	    ]]>
+	</update>
 </mapper>

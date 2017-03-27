@@ -47,4 +47,65 @@ public class SampleController {
         }
         return mv;
     }
+    
+    //boardWrite.jsp 화면을 호출하는 주소 등록
+    @RequestMapping(value="/sample/openBoardWrite.do")
+    public ModelAndView openBoardWrite(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/boardWrite");
+         
+        return mv;
+    }
+    
+    //글 작성 주소 등록(등록하고 나면 글 목록 작성 페이지로 redirect)
+    @RequestMapping(value="/sample/insertBoard.do")
+    public ModelAndView insertBoard(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("redirect:/sample/openBoardList.do");
+         
+        sampleService.insertBoard(commandMap.getMap());
+         
+        return mv;
+    }
+    
+    //상세 페이지 주소 등록
+    @RequestMapping(value="/sample/openBoardDetail.do")
+    public ModelAndView openBoardDetail(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/boardDetail");
+         
+        Map<String,Object> map = sampleService.selectBoardDetail(commandMap.getMap());
+        mv.addObject("map", map);
+         
+        return mv;
+    }
+    
+    //수정 페이지 주소 등록
+    @RequestMapping(value="/sample/openBoardUpdate.do")
+    public ModelAndView openBoardUpdate(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/boardUpdate");
+         
+        Map<String,Object> map = sampleService.selectBoardDetail(commandMap.getMap());
+        mv.addObject("map", map);
+         
+        return mv;
+    }
+     
+    //수정 버튼을 눌렀을 때 수정 처리 후 상세 페이지로 이동하도록 redirect
+    @RequestMapping(value="/sample/updateBoard.do")
+    public ModelAndView updateBoard(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("redirect:/sample/openBoardDetail.do");
+         
+        sampleService.updateBoard(commandMap.getMap());
+         
+        mv.addObject("IDX", commandMap.get("IDX"));
+        return mv;
+    }
+    
+    //게시물 삭제 페이지 주소 등록 -> 삭제 후에 다시 목록 페이지로 redirect
+    @RequestMapping(value="/sample/deleteBoard.do")
+    public ModelAndView deleteBoard(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("redirect:/sample/openBoardList.do");
+         
+        sampleService.deleteBoard(commandMap.getMap());
+         
+        return mv;
+    }
 }

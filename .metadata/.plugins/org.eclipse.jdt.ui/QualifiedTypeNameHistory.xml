@@ -6,4 +6,7 @@
 <fullyQualifiedTypeName name="first.sample.dao.SampleDAO"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="first.common.dao.AbstractDAO"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="first.common.common.CommandMap"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
 </qualifiedTypeNameHistroy>
